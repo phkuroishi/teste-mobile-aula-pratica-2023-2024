@@ -1,0 +1,302 @@
+> Task :omniNotes:preBuild UP-TO-DATE
+> Task :omniNotes:preAlphaDebugBuild UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugAidl NO-SOURCE
+> Task :omniNotes:compileAlphaDebugRenderscript NO-SOURCE
+> Task :omniNotes:dataBindingMergeDependencyArtifactsAlphaDebug UP-TO-DATE
+> Task :omniNotes:generateAlphaDebugResValues UP-TO-DATE
+> Task :omniNotes:generateAlphaDebugResources UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugResources UP-TO-DATE
+> Task :omniNotes:dataBindingGenBaseClassesAlphaDebug UP-TO-DATE
+> Task :omniNotes:generateAlphaDebugBuildConfig UP-TO-DATE
+> Task :omniNotes:checkAlphaDebugAarMetadata UP-TO-DATE
+> Task :omniNotes:mapAlphaDebugSourceSetPaths UP-TO-DATE
+> Task :omniNotes:createAlphaDebugCompatibleScreenManifests UP-TO-DATE
+> Task :omniNotes:extractDeepLinksAlphaDebug UP-TO-DATE
+> Task :omniNotes:processAlphaDebugMainManifest UP-TO-DATE
+> Task :omniNotes:processAlphaDebugManifest UP-TO-DATE
+> Task :omniNotes:processAlphaDebugManifestForPackage UP-TO-DATE
+> Task :omniNotes:processAlphaDebugResources UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugKotlin UP-TO-DATE
+> Task :omniNotes:javaPreCompileAlphaDebug UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugJavaWithJavac UP-TO-DATE
+> Task :omniNotes:bundleAlphaDebugClassesToCompileJar UP-TO-DATE
+> Task :omniNotes:preAlphaDebugAndroidTestBuild SKIPPED
+> Task :omniNotes:compileAlphaDebugAndroidTestAidl NO-SOURCE
+> Task :omniNotes:processAlphaDebugAndroidTestManifest UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugAndroidTestRenderscript NO-SOURCE
+> Task :omniNotes:dataBindingMergeDependencyArtifactsAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:generateAlphaDebugAndroidTestResValues UP-TO-DATE
+> Task :omniNotes:generateAlphaDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:dataBindingGenBaseClassesAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:generateAlphaDebugAndroidTestBuildConfig UP-TO-DATE
+> Task :omniNotes:checkAlphaDebugAndroidTestAarMetadata UP-TO-DATE
+> Task :omniNotes:mapAlphaDebugAndroidTestSourceSetPaths UP-TO-DATE
+> Task :omniNotes:processAlphaDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugAndroidTestKotlin UP-TO-DATE
+> Task :omniNotes:javaPreCompileAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugAndroidTestJavaWithJavac UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugShaders UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugShaders NO-SOURCE
+> Task :omniNotes:generateAlphaDebugAssets UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugAssets UP-TO-DATE
+> Task :omniNotes:compressAlphaDebugAssets UP-TO-DATE
+> Task :omniNotes:generateAlphaDebugJacocoPropertiesFile UP-TO-DATE
+> Task :omniNotes:processAlphaDebugJavaRes NO-SOURCE
+> Task :omniNotes:mergeAlphaDebugJavaResource UP-TO-DATE
+> Task :omniNotes:checkAlphaDebugDuplicateClasses UP-TO-DATE
+> Task :omniNotes:desugarAlphaDebugFileDependencies UP-TO-DATE
+> Task :omniNotes:mergeExtDexAlphaDebug UP-TO-DATE
+> Task :omniNotes:mergeLibDexAlphaDebug UP-TO-DATE
+> Task :omniNotes:jacocoAlphaDebug UP-TO-DATE
+> Task :omniNotes:dexBuilderAlphaDebug UP-TO-DATE
+> Task :omniNotes:mergeProjectDexAlphaDebug UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugJniLibFolders UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugNativeLibs NO-SOURCE
+> Task :omniNotes:stripAlphaDebugDebugSymbols NO-SOURCE
+> Task :omniNotes:validateSigningAlphaDebug UP-TO-DATE
+> Task :omniNotes:writeAlphaDebugAppMetadata UP-TO-DATE
+> Task :omniNotes:writeAlphaDebugSigningConfigVersions UP-TO-DATE
+> Task :omniNotes:packageAlphaDebug UP-TO-DATE
+> Task :omniNotes:createAlphaDebugApkListingFileRedirect UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugAndroidTestShaders UP-TO-DATE
+> Task :omniNotes:compileAlphaDebugAndroidTestShaders NO-SOURCE
+> Task :omniNotes:generateAlphaDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:compressAlphaDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:processAlphaDebugAndroidTestJavaRes NO-SOURCE
+> Task :omniNotes:mergeAlphaDebugAndroidTestJavaResource UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugAndroidTestJniLibFolders UP-TO-DATE
+> Task :omniNotes:mergeAlphaDebugAndroidTestNativeLibs NO-SOURCE
+> Task :omniNotes:checkAlphaDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :omniNotes:desugarAlphaDebugAndroidTestFileDependencies UP-TO-DATE
+> Task :omniNotes:mergeExtDexAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:mergeLibDexAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:dexBuilderAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:mergeProjectDexAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:validateSigningAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:writeAlphaDebugAndroidTestSigningConfigVersions UP-TO-DATE
+> Task :omniNotes:packageAlphaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:createAlphaDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+
+> Task :omniNotes:connectedAlphaDebugAndroidTest
+Starting 102 tests on Pixel_7_API_33(AVD) - 13
+
+it.feio.android.omninotes.helpers.DocumentFileHelperTest > copyFileTo_performance[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > categoryColorChange[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > checkCategoryCreation[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > addNewCategory[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.MrJingleLifecycleTest > mrJingle_displayedOnArchiveWhenEmptiedBySwiping[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+> Task :omniNotes:preBetaDebugBuild UP-TO-DATE
+> Task :omniNotes:compileBetaDebugAidl NO-SOURCE
+> Task :omniNotes:compileBetaDebugRenderscript NO-SOURCE
+> Task :omniNotes:dataBindingMergeDependencyArtifactsBetaDebug UP-TO-DATE
+> Task :omniNotes:generateBetaDebugResValues UP-TO-DATE
+> Task :omniNotes:generateBetaDebugResources UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugResources UP-TO-DATE
+> Task :omniNotes:dataBindingGenBaseClassesBetaDebug UP-TO-DATE
+> Task :omniNotes:generateBetaDebugBuildConfig UP-TO-DATE
+> Task :omniNotes:checkBetaDebugAarMetadata UP-TO-DATE
+> Task :omniNotes:mapBetaDebugSourceSetPaths UP-TO-DATE
+> Task :omniNotes:createBetaDebugCompatibleScreenManifests UP-TO-DATE
+> Task :omniNotes:extractDeepLinksBetaDebug UP-TO-DATE
+> Task :omniNotes:processBetaDebugMainManifest UP-TO-DATE
+> Task :omniNotes:processBetaDebugManifest UP-TO-DATE
+> Task :omniNotes:processBetaDebugManifestForPackage UP-TO-DATE
+> Task :omniNotes:processBetaDebugResources UP-TO-DATE
+> Task :omniNotes:compileBetaDebugKotlin UP-TO-DATE
+> Task :omniNotes:javaPreCompileBetaDebug UP-TO-DATE
+> Task :omniNotes:compileBetaDebugJavaWithJavac UP-TO-DATE
+> Task :omniNotes:bundleBetaDebugClassesToCompileJar UP-TO-DATE
+> Task :omniNotes:preBetaDebugAndroidTestBuild SKIPPED
+> Task :omniNotes:compileBetaDebugAndroidTestAidl NO-SOURCE
+> Task :omniNotes:processBetaDebugAndroidTestManifest UP-TO-DATE
+> Task :omniNotes:compileBetaDebugAndroidTestRenderscript NO-SOURCE
+> Task :omniNotes:dataBindingMergeDependencyArtifactsBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:generateBetaDebugAndroidTestResValues UP-TO-DATE
+> Task :omniNotes:generateBetaDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:dataBindingGenBaseClassesBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:generateBetaDebugAndroidTestBuildConfig UP-TO-DATE
+> Task :omniNotes:checkBetaDebugAndroidTestAarMetadata UP-TO-DATE
+> Task :omniNotes:mapBetaDebugAndroidTestSourceSetPaths UP-TO-DATE
+> Task :omniNotes:processBetaDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:compileBetaDebugAndroidTestKotlin UP-TO-DATE
+> Task :omniNotes:javaPreCompileBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:compileBetaDebugAndroidTestJavaWithJavac UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugShaders UP-TO-DATE
+> Task :omniNotes:compileBetaDebugShaders NO-SOURCE
+> Task :omniNotes:generateBetaDebugAssets UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugAssets UP-TO-DATE
+> Task :omniNotes:compressBetaDebugAssets UP-TO-DATE
+> Task :omniNotes:generateBetaDebugJacocoPropertiesFile UP-TO-DATE
+> Task :omniNotes:processBetaDebugJavaRes NO-SOURCE
+> Task :omniNotes:mergeBetaDebugJavaResource UP-TO-DATE
+> Task :omniNotes:checkBetaDebugDuplicateClasses UP-TO-DATE
+> Task :omniNotes:desugarBetaDebugFileDependencies UP-TO-DATE
+> Task :omniNotes:mergeExtDexBetaDebug UP-TO-DATE
+> Task :omniNotes:mergeLibDexBetaDebug UP-TO-DATE
+> Task :omniNotes:jacocoBetaDebug UP-TO-DATE
+> Task :omniNotes:dexBuilderBetaDebug UP-TO-DATE
+> Task :omniNotes:mergeProjectDexBetaDebug UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugJniLibFolders UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugNativeLibs NO-SOURCE
+> Task :omniNotes:stripBetaDebugDebugSymbols NO-SOURCE
+> Task :omniNotes:validateSigningBetaDebug UP-TO-DATE
+> Task :omniNotes:writeBetaDebugAppMetadata UP-TO-DATE
+> Task :omniNotes:writeBetaDebugSigningConfigVersions UP-TO-DATE
+> Task :omniNotes:packageBetaDebug UP-TO-DATE
+> Task :omniNotes:createBetaDebugApkListingFileRedirect UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugAndroidTestShaders UP-TO-DATE
+> Task :omniNotes:compileBetaDebugAndroidTestShaders NO-SOURCE
+> Task :omniNotes:generateBetaDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:compressBetaDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:processBetaDebugAndroidTestJavaRes NO-SOURCE
+> Task :omniNotes:mergeBetaDebugAndroidTestJavaResource UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugAndroidTestJniLibFolders UP-TO-DATE
+> Task :omniNotes:mergeBetaDebugAndroidTestNativeLibs NO-SOURCE
+> Task :omniNotes:checkBetaDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :omniNotes:desugarBetaDebugAndroidTestFileDependencies UP-TO-DATE
+> Task :omniNotes:mergeExtDexBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:mergeLibDexBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:dexBuilderBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:mergeProjectDexBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:validateSigningBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:writeBetaDebugAndroidTestSigningConfigVersions UP-TO-DATE
+> Task :omniNotes:packageBetaDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:createBetaDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+
+> Task :omniNotes:connectedBetaDebugAndroidTest
+Starting 102 tests on Pixel_7_API_33(AVD) - 13
+
+it.feio.android.omninotes.helpers.DocumentFileHelperTest > copyFileTo_performance[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > categoryColorChange[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > checkCategoryCreation[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > addNewCategory[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.MrJingleLifecycleTest > mrJingle_displayedOnArchiveWhenEmptiedBySwiping[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+> Task :omniNotes:preFossDebugBuild UP-TO-DATE
+> Task :omniNotes:compileFossDebugAidl NO-SOURCE
+> Task :omniNotes:compileFossDebugRenderscript NO-SOURCE
+> Task :omniNotes:dataBindingMergeDependencyArtifactsFossDebug UP-TO-DATE
+> Task :omniNotes:generateFossDebugResValues UP-TO-DATE
+> Task :omniNotes:generateFossDebugResources UP-TO-DATE
+> Task :omniNotes:mergeFossDebugResources UP-TO-DATE
+> Task :omniNotes:dataBindingGenBaseClassesFossDebug UP-TO-DATE
+> Task :omniNotes:generateFossDebugBuildConfig UP-TO-DATE
+> Task :omniNotes:checkFossDebugAarMetadata UP-TO-DATE
+> Task :omniNotes:mapFossDebugSourceSetPaths UP-TO-DATE
+> Task :omniNotes:createFossDebugCompatibleScreenManifests UP-TO-DATE
+> Task :omniNotes:extractDeepLinksFossDebug UP-TO-DATE
+> Task :omniNotes:processFossDebugMainManifest UP-TO-DATE
+> Task :omniNotes:processFossDebugManifest UP-TO-DATE
+> Task :omniNotes:processFossDebugManifestForPackage UP-TO-DATE
+> Task :omniNotes:processFossDebugResources UP-TO-DATE
+> Task :omniNotes:compileFossDebugKotlin UP-TO-DATE
+> Task :omniNotes:javaPreCompileFossDebug UP-TO-DATE
+> Task :omniNotes:compileFossDebugJavaWithJavac UP-TO-DATE
+> Task :omniNotes:bundleFossDebugClassesToCompileJar UP-TO-DATE
+> Task :omniNotes:preFossDebugAndroidTestBuild SKIPPED
+> Task :omniNotes:compileFossDebugAndroidTestAidl NO-SOURCE
+> Task :omniNotes:processFossDebugAndroidTestManifest UP-TO-DATE
+> Task :omniNotes:compileFossDebugAndroidTestRenderscript NO-SOURCE
+> Task :omniNotes:dataBindingMergeDependencyArtifactsFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:generateFossDebugAndroidTestResValues UP-TO-DATE
+> Task :omniNotes:generateFossDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:mergeFossDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:dataBindingGenBaseClassesFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:generateFossDebugAndroidTestBuildConfig UP-TO-DATE
+> Task :omniNotes:checkFossDebugAndroidTestAarMetadata UP-TO-DATE
+> Task :omniNotes:mapFossDebugAndroidTestSourceSetPaths UP-TO-DATE
+> Task :omniNotes:processFossDebugAndroidTestResources UP-TO-DATE
+> Task :omniNotes:compileFossDebugAndroidTestKotlin UP-TO-DATE
+> Task :omniNotes:javaPreCompileFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:compileFossDebugAndroidTestJavaWithJavac UP-TO-DATE
+> Task :omniNotes:mergeFossDebugShaders UP-TO-DATE
+> Task :omniNotes:compileFossDebugShaders NO-SOURCE
+> Task :omniNotes:generateFossDebugAssets UP-TO-DATE
+> Task :omniNotes:mergeFossDebugAssets UP-TO-DATE
+> Task :omniNotes:compressFossDebugAssets UP-TO-DATE
+> Task :omniNotes:checkFossDebugDuplicateClasses UP-TO-DATE
+> Task :omniNotes:desugarFossDebugFileDependencies UP-TO-DATE
+> Task :omniNotes:mergeExtDexFossDebug UP-TO-DATE
+> Task :omniNotes:generateFossDebugJacocoPropertiesFile UP-TO-DATE
+> Task :omniNotes:processFossDebugJavaRes NO-SOURCE
+> Task :omniNotes:mergeFossDebugJavaResource UP-TO-DATE
+> Task :omniNotes:mergeLibDexFossDebug UP-TO-DATE
+> Task :omniNotes:jacocoFossDebug UP-TO-DATE
+> Task :omniNotes:dexBuilderFossDebug UP-TO-DATE
+> Task :omniNotes:mergeProjectDexFossDebug UP-TO-DATE
+> Task :omniNotes:mergeFossDebugJniLibFolders UP-TO-DATE
+> Task :omniNotes:mergeFossDebugNativeLibs NO-SOURCE
+> Task :omniNotes:stripFossDebugDebugSymbols NO-SOURCE
+> Task :omniNotes:validateSigningFossDebug UP-TO-DATE
+> Task :omniNotes:writeFossDebugAppMetadata UP-TO-DATE
+> Task :omniNotes:writeFossDebugSigningConfigVersions UP-TO-DATE
+> Task :omniNotes:packageFossDebug UP-TO-DATE
+> Task :omniNotes:createFossDebugApkListingFileRedirect UP-TO-DATE
+> Task :omniNotes:mergeFossDebugAndroidTestShaders UP-TO-DATE
+> Task :omniNotes:compileFossDebugAndroidTestShaders NO-SOURCE
+> Task :omniNotes:generateFossDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:mergeFossDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:compressFossDebugAndroidTestAssets UP-TO-DATE
+> Task :omniNotes:checkFossDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :omniNotes:desugarFossDebugAndroidTestFileDependencies UP-TO-DATE
+> Task :omniNotes:mergeExtDexFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:processFossDebugAndroidTestJavaRes NO-SOURCE
+> Task :omniNotes:mergeFossDebugAndroidTestJavaResource UP-TO-DATE
+> Task :omniNotes:mergeFossDebugAndroidTestJniLibFolders UP-TO-DATE
+> Task :omniNotes:mergeFossDebugAndroidTestNativeLibs NO-SOURCE
+> Task :omniNotes:mergeLibDexFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:dexBuilderFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:mergeProjectDexFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:validateSigningFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:writeFossDebugAndroidTestSigningConfigVersions UP-TO-DATE
+> Task :omniNotes:packageFossDebugAndroidTest UP-TO-DATE
+> Task :omniNotes:createFossDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+
+> Task :omniNotes:connectedFossDebugAndroidTest
+Starting 102 tests on Pixel_7_API_33(AVD) - 13
+
+it.feio.android.omninotes.helpers.DocumentFileHelperTest > copyFileTo_performance[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.helpers.GeocodeProviderBaseFactoryTest > getProvider[Pixel_7_API_33(AVD) - 13] [31mFAILED [0m
+	java.lang.UnsupportedOperationException: This is just an usless class to make compiler happy!
+	at io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesWithFallbackProvider.<init>(LocationGooglePlayServicesWithFallbackProvider.java:16)
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > categoryColorChange[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > checkCategoryCreation[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.CategoryLifecycleTest > addNewCategory[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+
+it.feio.android.omninotes.ui.MrJingleLifecycleTest > mrJingle_displayedOnArchiveWhenEmptiedBySwiping[Pixel_7_API_33(AVD) - 13] [33mSKIPPED [0m
+Tests on Pixel_7_API_33(AVD) - 13 failed: There was 1 failure(s).
+
+> Task :omniNotes:connectedFossDebugAndroidTest FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':omniNotes:connectedFossDebugAndroidTest'.
+> There were failing tests. See the report at: file:///home/pedro/workspace/posgrad/feup/temp/android-projects/Omni-Notes/omniNotes/build/reports/androidTests/connected/flavors/foss/index.html
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2m 41s
+189 actionable tasks: 3 executed, 186 up-to-date

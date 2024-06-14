@@ -1,0 +1,132 @@
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "$jacocoVersion"
+}
+
+tasks.withType(Test) {
+    jacoco {
+        includeNoLocationClasses = true
+        excludes = ['jdk.internal.*']
+    }
+}
+
+task jacocoTestReport(type: JacocoReport) {
+
+    group = "Reporting"
+    description = "Generate JaCoCo coverage report."
+
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def classFiles = fileTree(dir: "$project.buildDir/intermediates/javac/debug", excludes: fileFilter)
+    def mainSrc = "$project.projectDir/src/main/java"
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([classFiles]))
+
+//    def debugUnitTestExecFile = file("$project.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec")
+    def debugUnitInstrumetedEcFile = file("$project.buildDir/outputs/code_coverage/debugAndroidTest/connected/*coverage.ec")
+
+    executionData.from(debugUnitInstrumetedEcFile)
+}
+
+android {
+    compileSdkVersion = 33
+
+    defaultConfig {
+        applicationId = "com.android.keepass"
+        minSdkVersion 14
+        targetSdkVersion 33
+
+        multiDexEnabled true
+
+        versionCode = 215
+        versionName = "2.6.8"
+
+        testApplicationId = "com.keepassdroid.tests"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
+        ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+        }
+
+        lintOptions {
+            abortOnError false
+            baseline file("lint-baseline.xml")
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/jni/CMakeLists.txt"
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            testCoverageEnabled = true
+        }
+
+        release {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    namespace 'com.android.keepass'
+
+
+}
+
+dependencies {
+
+    implementation ('org.bouncycastle:bcprov-jdk15to18:1.76') {
+        exclude group: 'junit'
+    }
+    implementation 'joda-time:joda-time:2.9.4'
+    implementation 'androidx.core:core:1.10.1'
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation 'commons-io:commons-io:2.5'
+    implementation "androidx.biometric:biometric:1.1.0"
+    implementation "androidx.preference:preference:1.2.1"
+    implementation "com.google.android.material:material:1.9.0"
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
+    testImplementation 'junit:junit:4.13.2'
+
+    androidTestImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+}
+
+configurations {
+    resolvedImplementation.extendsFrom(implementation).canBeResolved = true
+}
+task downloadDependencies(type: Copy) {
+    from configurations.resolvedImplementation
+    into './dependenciesDirectory'
+}
+
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+    }
+}
+
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += [
+    ]
+}

@@ -1,0 +1,24 @@
+1. Para fazer o build da app, basta ir no terminal shell e digitar o seguinte comando no diretório raiz do projeto:
+   ./gradlew clean build
+
+2. Esse projeto já possui um conjunto de testes instrumentados já implementados. Utilize-os para auxiliar na criação de novos testes. Os testes devem ser criados para o módulo "app" da aplicação. Os módulos "commons_compress_7z" e "file_operations" devem ser utilizados apenas para compreender o funcionamento da aplicação.
+
+3. Para executar os testes via linha de comando é necessário que o emulador já esteja iniciado. O comando para executar o emulador é: 
+    emulator -avd <NOME_DO_EMULADOR>
+
+3.1. Em seguida, execute o comando no diretório raiz do projeto:
+    ./gradlew cAT ou ./gradlew connectedAndroidTest
+
+3.2. Executar os testes pela linha de comando é apenas uma opção. É possível executar os testes utilizando a próprio IDE, conforme vimos nas aulas anteriores.
+
+4. Alguns testes podem estar anotados com @Ignore. Esses testes representam um flaky test e apresenta um comportamento não determinístico, ou seja, em alguns casos ele executa normalmente e, em outras, não executa. Caso algum teste já disponibilizado apresente um comportamento flaky, anote-o com @Ignore. 
+
+5. Para gerar o relatório de cobertura de código, digite o seguinte comando no diretório raiz:
+    ./gradlew jacocoTestReport
+
+5.1. Em geral, o relatório é gerado em app/build/reports/coverage/androidTest/play/debug/connected/index.html
+
+6. (OPCIONAL) Existe um comando que irá "resetar" o emulador e que pode ser útil em alguns casos. Para iniciar o emulador "resetado" via linha de comando, inicie o emulador com o seguinte comando (-wipe-data):
+    emulator -avd <NOME_DO_EMULADOR> -wipe-data
+
+6.1. (OPCIONAL) É possível realizar "-wipe-data" pelo Android Studio. Para isso, vá em Device Manager localizado ao lado superior direito da tela, clique em "Opção" (representado por três pontos) no emulador que deseja limpar os dados e clique em Wipe Data

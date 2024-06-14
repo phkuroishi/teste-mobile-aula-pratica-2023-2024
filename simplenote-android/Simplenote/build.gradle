@@ -1,0 +1,296 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.sentry.android.gradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+apply plugin: 'jacoco'
+jacoco {
+    toolVersion = '0.8.7'
+}
+tasks.withType(Test) {
+    jacoco {
+        includeNoLocationClasses = true
+        excludes = ['jdk.internal.*']
+    }
+}
+
+task jacocoTestReport(type: JacocoReport) {
+
+    group = "Reporting"
+    description = "Generate JaCoCo coverage report."
+
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def debugTree = fileTree(dir: "$project.buildDir/intermediates/javac/debug/classes", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    def kotlinClasses = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
+
+    def kotlinAsmClasses = fileTree(dir: "$project.buildDir/intermediates/asm_instrumented_project_classes/debug/hilt_aggregated_deps", excludes: fileFilter)
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([debugTree, kotlinClasses, kotlinAsmClasses]))
+
+    def debugInstrumentedFile = file("$project.buildDir/build/outputs/code_coverage/debugAndroidTest/connected/**/*.ec")
+    executionData.setFrom(debugInstrumentedFile)
+}
+
+android {
+    namespace 'com.automattic.simplenote'
+    compileSdk 33
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+            applicationIdSuffix '.debug'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        // Dedicated build type for screenshots so that we can add the special
+        // permissions only to it, keeping debug and release closer together to
+        // make bug hunting easier.
+        screenshots {
+            initWith debug
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.automattic.simplenote"
+        // Allow versionName to be overridden with property. e.g. -PversionName=1234
+        if (project.hasProperty("versionName")) {
+            versionName project.property("versionName")
+        } else {
+            versionName "2.30"
+        }
+        versionCode 162
+        minSdkVersion 23
+        targetSdkVersion 33
+
+        testInstrumentationRunner 'com.automattic.simplenote.SimplenoteAppRunner'
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        // Disable animations in order to enter text in the text inputs in the
+        // Espresso tests
+        animationsDisabled = true
+    }
+
+    // Target Java8 to avoid use certain Kotlin's features
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    // Added to avoid warning
+    buildFeatures {
+        buildConfig = true
+    }
+
+}
+
+buildscript {
+    dependencies {
+        classpath 'io.sentry:sentry-android-gradle-plugin:3.5.0'
+    }
+
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.8.47'
+    androidTestImplementation 'androidx.test:core:1.4.0'
+    androidTestImplementation 'androidx.annotation:annotation:1.0.0'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:rules:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+    androidTestImplementation('androidx.test.espresso:espresso-contrib:3.2.0') {
+        // Necessary to avoid version conflicts
+        exclude group: 'androidx', module: 'appcompat'
+        exclude group: 'androidx', module: 'support-v4'
+        exclude group: 'androidx', module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
+    // Infrastructure to test fragments
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
+
+
+    // Support for JsonObjects in unit tests since they are used by BucketObjects
+    testImplementation 'org.json:json:20210307'
+
+    // Fastlane screengrab for screenshots automation
+    androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
+    // Automattic and WordPress dependencies
+    implementation 'com.automattic:simperium:v1.3.0'
+    implementation('com.github.Automattic:Automattic-Tracks-Android:2.1.0') {
+        // Tracks lib is referring to an unavailable build of okhttp
+        exclude group: 'com.squareup.okhttp3'
+    }
+    implementation 'org.wordpress:passcodelock:2.0.2'
+
+    // Kotlin's coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+
+    // Google Play Billing
+    implementation("com.android.billingclient:billing:6.0.1")
+
+    // Google Support
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0-beta01'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
+    implementation 'androidx.work:work-runtime:2.7.1'
+    implementation 'androidx.concurrent:concurrent-futures:1.1.0'
+    implementation "androidx.multidex:multidex:2.0.1"
+    // Support for ViewModels and LiveData
+    implementation "androidx.activity:activity-ktx:1.3.1"
+    implementation "androidx.fragment:fragment-ktx:1.3.6"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    // Support for androidx Fragments
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
+
+    // Google Play Services
+    implementation 'com.google.android.gms:play-services-wearable:17.0.0'
+    // Third Party
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.commonsware.cwac:anddown:0.4.0'
+    implementation 'net.openid:appauth:0.7.0'
+
+    // Dagger Hilt dependencies
+    implementation 'com.google.dagger:hilt-android:2.38.1'
+    annotationProcessor 'com.google.dagger:hilt-compiler:2.38.1'
+    kapt 'com.google.dagger:hilt-compiler:2.38.1'
+
+    wearApp project(':Wear')
+}
+
+repositories {
+    maven {
+        url "https://a8c-libs.s3.amazonaws.com/android"
+        content {
+            includeGroup "com.automattic"
+        }
+    }
+    maven { url "https://maven.google.com" }
+    maven { url "https://s3.amazonaws.com/repo.commonsware.com" }
+    jcenter()
+    maven {
+        url 'https://jitpack.io'
+        content {
+            includeGroup "com.github.Automattic"
+        }
+    }
+}
+
+//if(["storeFile", "storePassword", "keyAlias", "keyPassword"].count { !project.hasProperty(it) } == 0 ){
+//    android {
+//      signingConfigs {
+//          release {
+//              storeFile = rootProject.file(project.storeFile)
+//              storePassword = project.storePassword
+//              keyAlias = project.keyAlias
+//              keyPassword = project.keyPassword
+//          }
+//      }
+//    }
+//    android.buildTypes.release.signingConfig = android.signingConfigs.release
+//}
+
+task copyGradlePropertiesIfMissing(group: "generate", description: "Copy Gradle Properties") {
+    if (!file("${rootDir}/Simplenote/gradle.properties").exists()) {
+        copy {
+            from("${rootDir}/Simplenote")
+            into("${rootDir}/Simplenote")
+            include('gradle.properties-example')
+            rename('gradle.properties-example', 'gradle.properties')
+        }
+    }
+}
+
+static def loadPropertiesFromFile(inputFile) {
+    def properties = new Properties()
+    inputFile.withInputStream { stream ->
+        properties.load(stream)
+    }
+    return properties
+}
+
+static String toSnakeCase( String text ) {
+    text.replaceAll( /([A-Z])/, /_$1/ ).replaceAll( /^_/, '' )
+}
+
+android.applicationVariants.all { variant ->
+    variant.generateBuildConfigProvider.configure {
+        dependsOn(copyGradlePropertiesIfMissing)
+    }
+    def inputFile = file("${rootDir}/Simplenote/gradle.properties")
+    def properties = loadPropertiesFromFile(inputFile)
+    properties.any { property ->
+        def key = toSnakeCase(property.key).toUpperCase()
+        if (key == "SIMPERIUM_APP_ID" ||
+            key == "SIMPERIUM_APP_KEY" ||
+            key == "GOOGLE_ANALYTICS_ID" ||
+            key == "LOGIN_EMAIL" ||
+            key == "LOGIN_PASSWORD" ||
+            key == "SENTRY_DSN" ||
+            key == "WPCOM_CLIENT_ID" ||
+            key == "SCREENSHOT_EMAIL" ||
+            key == "SCREENSHOT_PASSWORD") {
+            buildConfigField "String", key, "\"${property.value}\""
+        }
+    }
+    buildConfigField "String", "BUILD", "\"${gitDescribe()}\""
+    buildConfigField "String", "BUILD_HASH", "\"${gitHash()}\""
+}
+
+if (project.hasProperty("debugStoreFile")) {
+    def sharedDebugStore = file(project.debugStoreFile.replaceFirst("^~", System.getProperty("user.home")))
+    if (sharedDebugStore.exists()) {
+        android {
+            signingConfigs {
+                debug {
+                    storeFile sharedDebugStore
+                }
+            }
+        }
+    }
+}
+
+project.gradle.taskGraph.whenReady { graph ->
+    project.tasks.findAll().forEach { task ->
+        if (task.name.contains("uploadSentryProguardMappingsRelease")) {
+            task.enabled = false
+        }
+    }
+}

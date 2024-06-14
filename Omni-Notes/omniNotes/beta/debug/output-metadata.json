@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "it.feio.android.omninotes",
+  "variantName": "betaDebug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 323,
+      "versionName": "6.2.8",
+      "outputFile": "OmniNotes-betaDebug-6.2.8.apk"
+    }
+  ],
+  "elementType": "File"
+}

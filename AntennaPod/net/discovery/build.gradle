@@ -1,0 +1,69 @@
+plugins {
+    id("com.android.library")
+}
+apply from: "../../common.gradle"
+apply from: "../../playFlavor.gradle"
+
+android {
+    namespace "de.danoeh.antennapod.net.discovery"
+
+    defaultConfig {
+        if (project.hasProperty("podcastindexApiKey")) {
+            buildConfigField "String", "PODCASTINDEX_API_KEY", '"' + podcastindexApiKey + '"'
+            buildConfigField "String", "PODCASTINDEX_API_SECRET", '"' + podcastindexApiSecret + '"'
+        } else {
+            buildConfigField "String", "PODCASTINDEX_API_KEY", '"XTMMQGA2YZ4WJUBYY4HK"'
+            buildConfigField "String", "PODCASTINDEX_API_SECRET", '"XAaAhk4^2YBsTE33vdbwbZNj82ZRLABDDqFdKe7x"'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':model')
+    implementation project(':net:sync:gpoddernet')
+    implementation project(':net:sync:model')
+
+    annotationProcessor "androidx.annotation:annotation:$annotationVersion"
+
+    testImplementation "junit:junit:$junitVersion"
+    implementation 'com.github.mfietz:fyydlin:v0.5.0'
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+}
+
+jacoco {
+    toolVersion '0.8.7'
+}
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "skipped", "passed", "failed"
+        showStandardStreams true
+        displayGranularity 2
+    }
+    jacoco {
+        excludes = ['jdk.internal.*']
+        includeNoLocationClasses = true
+    }
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testFreeDebugUnitTest']) {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*']
+    def debugTree = fileTree(dir: "$buildDir/intermediates/javac/freeDebug", excludes: fileFilter)
+    def mainSrc = "$projectDir/src/main/java"
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([debugTree]))
+    executionData.setFrom(fileTree(dir: "$buildDir", includes: [
+            "outputs/unit_test_code_coverage/freeDebugUnitTest/testFreeDebugUnitTest.exec"
+    ]))
+}

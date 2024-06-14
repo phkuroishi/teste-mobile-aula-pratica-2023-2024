@@ -1,0 +1,32 @@
+1. Para fazer o build da app, basta ir no terminal shell e digitar o seguinte comando no diretório raiz do projeto:
+   ./gradlew clean build -x test
+
+2. Esse projeto já possui um conjunto de testes instrumentados. Utilize-os para auxiliar na criação de novos testes
+2.1. (IMPORTANTE) O Aegis possui um instrumentador customizado ("com.beemdevelopment.aegis.AegisTestRunner"). Neste caso, a classe de teste deve estender a classe do executor AegisTest. Por exemplo:
+    public class ExemploTest extends AegisTest.
+
+2.2. Observe as classes implementadas para compreender como implementar os novos casos de teste.
+
+3. Para executar os testes via linha de comando é necessário que o emulador já esteja iniciado. O comando para executar o emulador é: 
+    emulator -avd <NOME_DO_EMULADOR>
+
+3.1. Em seguida, execute o comando no diretório raiz do projeto:
+    ./gradlew cAT ou ./gradlew connectedAndroidTest
+
+3.2. Executar os testes pela linha de comando é apenas uma opção. É possível executar os testes utilizando a próprio IDE, conforme vimos nas aulas anteriores.
+
+3.3. Após a execução dos testes, pode ocorrer o seguinte erro: " > Unable to generate Jacoco report". Neste caso, ignore-o e tente gerar o gelatório de cobertura conforme o passo 5 desse guideline. Verifice se o relatório é criado, caso contrário, re-execute os testes com o seguinte comando: ./gradlew cAT -x :app:createDebugAndroidTestCoverageReport
+
+3.4. Se mesmo assim o relatório de cobertura não for gerado, vá no Android Studio -> Menu -> File -> Invalidate caches ... -> Selecione os dois primeiros itens -> Invalidate and Restart. Após isso, faça o build do projeto e execute os testes novamente
+
+4. Alguns testes podem estar anotados com @Ignore. Esses testes representam um flaky test e apresenta um comportamento não determinístico, ou seja, em alguns casos ele executa normalmente e, em outras, não executa. Caso algum teste já disponibilizado apresente um comportamento flaky, anote-o com @Ignore. 
+
+5. Para gerar o relatório de cobertura de código, digite o seguinte comando no diretório raiz:
+    ./gradlew jacocoTestReport
+
+5.2. Em geral, o relatório é gerado em <APP>/build/reports/coverage/androidTest/debug/connected/index.html
+
+6. (OPCIONAL) Existe um comando que irá "resetar" o emulador e que pode ser útil em alguns casos. Para iniciar o emulador "resetado" via linha de comando, inicie o emulador com o seguinte comando (-wipe-data):
+    emulator -avd <NOME_DO_EMULADOR> -wipe-data
+
+6.1. (OPCIONAL) É possível realizar "-wipe-data" pelo Android Studio. Para isso, vá em Device Manager localizado ao lado superior direito da tela, clique em "Opção" (representado por três pontos) no emulador que deseja limpar os dados e clique em Wipe Data
